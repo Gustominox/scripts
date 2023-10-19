@@ -1,5 +1,28 @@
 #!/bin/sh
 #Opens terminal's Enviroment
-gnome-terminal --geometry 151x28-1255+535 --hide-menubar --title Bottom-Left
-gnome-terminal --geometry 82x59-20+10 --hide-menubar --title Right --window-with-profile="nighty (Right)" -- sh /home/gusto/bin/scripts/.dev_profile 
-gnome-terminal --geometry 151x28-1255+10 --hide-menubar --title Top-Left
+
+MONITORS=$(xrandr | awk ' / connected/ {print $1} ') #| wc -l
+
+
+if [ "$1" = 1 ]; then
+  place="DP-2"
+ else
+  place="HDMI-0"
+fi
+
+#for MONITOR in $MONITORS
+if [ $place = "DP-2" ]; then
+
+gnome-terminal --geometry 153x28+0+535 --hide-menubar --title Bottom-Left
+gnome-terminal --geometry 82x59+1400+10 --hide-menubar --title Right --window-with-profile="nighty (Right)" -- sh /home/gusto/bin/scripts/.dev_profile 
+gnome-terminal --geometry 153x28+0+10 --hide-menubar --title Top-Left
+else
+
+gnome-terminal --geometry 131x28+1930+555 --hide-menubar --title Bottom-Left
+gnome-terminal --geometry 72x59+3300+20 --hide-menubar --title Right --window-with-profile="nighty (Right)" -- sh /home/gusto/bin/scripts/.dev_profile 
+gnome-terminal --geometry 131x28+1930+40 --hide-menubar --title Top-Left
+fi
+ # done
+#gnome-terminal --geometry 95x18+0+535 --hide-menubar --title Bottom-Left
+#gnome-terminal --geometry 82x59+1400+10 --hide-menubar --title Right --window-with-profile="nighty (Right)" -- sh /home/gusto/bin/scripts/.dev_profile 
+#gnome-terminal --geometry 95x18+0+10 --hide-menubar --title Top-Left
