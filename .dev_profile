@@ -1,4 +1,4 @@
 #!/bin/sh
 neofetch
-calcurse
+# calcurse
 exec "$SHELL"
